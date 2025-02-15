@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Enter the filename to monitor:"
+read file
+
+if [ ! -f "$file" ]; then
+    echo "File does not exist."
+    exit 1
+fi
+
+echo "Monitor#!/bin/bash
+
+echo "Enter the filename to monitor:"
+read file
+
+if [ ! -f "$file" ]; then
+    echo "File does not exist."
+    exit 1
+fi
+
+echo "Monitoring $file for changes... Press Ctrl+C to stop."
+
+while true; do
+    inotifywait -q -e modify "$file"
+    echo "File $file has been modified!"
+done
